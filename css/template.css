@@ -1,0 +1,88 @@
+body
+{
+	margin: 0; padding: 0;
+	background: #101010;
+	font-family: Helvetica, sans-serif;
+}
+
+/* Container for any page */
+#container
+{
+	height: 100vh; width: calc(100vw - 110px);
+	position: fixed;
+	right: 0;
+	z-index: -9999;
+}
+
+#taskbar
+{
+	height: 100vh; width: 110px;
+	border-right: 1px solid white;
+	text-align: center;
+	position: fixed;
+}
+
+.taskbarButton
+{
+	height: 80px; width: 80px;
+	padding: 8px; margin-bottom: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.taskbarButton:hover
+{
+	background: gray;
+	background: rgba(128, 128, 128, 0.5);
+}
+
+#navigationContainer
+{
+	position: absolute;
+	left: 50%; transform: translateX(-50%);
+	bottom: 0;
+}
+#navigationMenu
+{
+	display: none;
+	list-style-type: none;
+	margin: 0; padding: 0;
+
+	width: 200px;
+	border: 1px solid white;
+
+	position: absolute;
+	top: 50%; transform: translateY(-50%);
+	left: 113px;
+}
+#navigationOption
+{
+	display: block;
+	text-decoration: none;
+	font-family: Helvetica, sans-serif;
+	font-size: 18px; color: white;
+	padding: 5px;
+	cursor: pointer;
+}
+#navigationOption:hover
+{
+	background: white;
+	color: #101010;
+}
+
+#searchbar
+{
+	display: none;
+	height: 40px; width: 400px;
+
+	background: none; outline: none;
+	border: 1px solid white;
+
+	padding-left: 7px;
+
+	font-family: Helvetica, sans-serif;
+	font-size: 18px; color: white;
+
+	position: absolute;
+	left: 50%; transform: translateX(-50%);
+	top: 10px;
+}
