@@ -1,0 +1,144 @@
+#profileHeader
+{
+	display: flex; flex-flow: row wrap;
+	justify-content: center; align-items: center;
+
+	position: relative;
+	margin: 0 auto;
+	top: 10px;
+}
+
+/* "Remove Profile Picture" */
+#profileHeader a { text-decoration: none; }
+#profileHeader span
+{
+	display: inline-block;
+	height: 40px; width: 200px;
+
+	text-align: center;
+	line-height: 40px;
+	color: #EDE6D6;
+
+	border: 1px solid #EDE6D6;
+
+	margin-right: 10px;
+
+	user-select: none;
+}
+#profileHeader span:hover
+{
+	background: #EDE6D6;
+	color: #101010;
+}
+
+/* Container for profile picture and username */
+#profileHeader section
+{
+	height: 300px; width: 270px;
+	border: 1px solid white;
+	text-align: center;
+}
+#profileHeader section img
+{
+	margin-top: 10px;
+	height: 250px; width: 250px;
+	user-select: none;
+}
+#profileHeader section p
+{
+	margin: 0; padding: 0;
+	color: white; font-size: 25px;
+	user-select: none;
+}
+
+/* Change pfp form */
+#profileHeader form
+{
+	width: 200px;
+	margin-left: 10px;
+}
+#profileHeader form input
+{
+	height: 25px; width: 190px;
+
+	background: none; outline: none;
+	border: 1px solid #EDE6D6;
+
+	font-family: Helvetica, sans-serif;
+	font-size: 12px; color: #EDE6D6;
+
+	margin-bottom: 5px;
+}
+#changeSubmit { cursor: pointer; user-select: none; }
+#changeSubmit:hover
+{
+	background: #EDE6D6;
+	color: #101010;
+}
+
+/* Displays the users posts */
+#profileContent
+{
+	width: 80%; height: calc(100vh - 340px);
+
+	position: relative;
+	margin: 0 auto;
+	top: 25px;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+/* Container for a post */
+#profileContent div
+{
+	height: 30px; width: 99%;
+	border: 1px solid #EDE6D6;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+#profileContent div:hover { background: #EDE6D6; }
+#profileContent div:hover span { color: #101010; }
+/* Displays post information like title, caption, and filename */
+#profileContent div > span
+{
+	display: inline-block;
+	height: 30px; width: auto;
+
+	padding: 0px 5px; line-height: 30px;
+	font-size: 18px; color: #EDE6D6;
+
+	/* Actually removes whitespaces from <span> */
+	margin-right: -5px;
+}
+#title { border-right: 1px solid #EDE6D6; }
+#caption { border-right: 1px solid #EDE6D6; margin-left: 1px; }
+#filename
+{
+	max-width: 340px;
+	border-left: 1px solid #EDE6D6;
+	position: absolute;
+	right: 14px;
+}
+
+@media only screen and (max-width: 1200px)
+{
+	#filename { opacity: 0; }
+	#caption
+	{
+		border-right: none;
+		border-left: 1px solid #EDE6D6;
+		position: absolute;
+		right: 12px;
+	}
+}
+@media only screen and (max-width: 570px)
+{
+	#caption { opacity: 0; }
+	#title
+	{
+		position: absolute;
+		left: 50%; transform: translateX(-50%);
+		border-left: 1px solid #EDE6D6;
+		white-space: nowrap;
+	}
+}

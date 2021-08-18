@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 	<link rel="stylesheet" href="css/template.css">
 	<link rel="stylesheet" href="css/modal.css">
 	<script src="js/template.js"></script>
@@ -5,29 +7,47 @@
 </head>
 
 <body>
-	<!-- Taskbar -->
 	<aside id="taskbar">
 		<!-- Home button -->
 		<a href="index.php">
-			<img src="img/xampp.png" class="taskbarButton" style="position: relative; top: 5px;">
+			<img src="img/logo.png" style="margin-top: 5px;">
 		</a>
 
 		<!-- Search button -->
-		<img src="img/search.png" class="taskbarButton" onclick="toggleSearchbar()">
+		<img src="img/search.png" onclick="toggleSearchbar()">
 
-		<!-- Navigation button -->
+		<!-- Navigation menu -->
 		<div id="navigationContainer">
-			<img src="img/navigation.png" id="navigationButton" class="taskbarButton" onclick="toggleNavigation()">
+			<img src="img/navigation.png" id="navigationButton" onclick="toggleNavigation()">
 
-			<ul id="navigationMenu">
-				<li><a href="javascript:modalLogin()" id="navigationOption">Login</a></li>
-				<li><a href="javascript:modalSignup()" id="navigationOption">Signup</a></li>
-			</ul>
+			<?php
+
+			// If the user isn't signed in
+			if (!isset($_SESSION['id']))
+				echo '
+				<ul id="navigationMenu">
+					<li><a href="javascript:modalLogin()" id="navigationOption">Login</a></li>
+					<li><a href="javascript:modalSignup()" id="navigationOption">Signup</a></li>
+				</ul>
+				';
+			else
+				echo '
+				<ul id="navigationMenu">
+					<li><a href="profile.php" id="navigationOption">Your Profile</a></li>
+					<li><a href="scripts/logout.inc.php" id="navigationOption">Logout</a></li>
+				</ul>
+				';
+			?>		
 		</div>
+
+		<!-- Post button -->
+		<?php
+		if (isset($_SESSION['id']))
+			echo '<img src="img/newPost.png" onclick="modalPost()">';
+		?>
 	</aside>
 
 	<?php include_once 'modal.php'; ?>
 
 	<main id="container">
-		<!-- Searchbar-->
-		<input type="search" placeholder="Search (press esc to exit)" id="searchbar">
+		<input type="search" placeholder="Search (press escape to exit)" id="searchbar">

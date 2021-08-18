@@ -1,0 +1,10 @@
+#websiteInformation
+{
+	border: 3px solid #EDE6D6;
+	padding: 0px 10px;
+	color: #EDE6D6;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+}
+#websiteInformation h1, h2, h3 { text-align: center; }
